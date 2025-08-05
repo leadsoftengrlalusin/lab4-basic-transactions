@@ -39,7 +39,8 @@ public class BankingController {
     }
 
     @GetMapping("/accounts/{accountNumber}")
-    public ResponseEntity<Account> getAccount(@PathVariable String accountNumber) {
+//    public ResponseEntity<Account> getAccount(@PathVariable String accountNumber) {
+    public ResponseEntity<Account> getAccount(@PathVariable("accountNumber") String accountNumber) {
         return ResponseEntity.ok(bankingService.getAccount(accountNumber));
     }
 
@@ -54,7 +55,8 @@ public class BankingController {
     }
 
     @GetMapping("/accounts/{accountNumber}/transactions")
-    public ResponseEntity<List<TransactionRecord>> getTransactionHistory(@PathVariable String accountNumber) {
+//    public ResponseEntity<List<TransactionRecord>> getTransactionHistory(@PathVariable String accountNumber) {
+    public ResponseEntity<List<TransactionRecord>> getTransactionHistory(@PathVariable("accountNumber") String accountNumber) {
         return ResponseEntity.ok(bankingService.getTransactionHistory(accountNumber));
     }
 }
